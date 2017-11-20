@@ -12,3 +12,12 @@ The datasets and code here are only "real" in sense that they're working softwar
 issues in machine learning using technologies that are now part of the mainstream IT industry.
 However, they are intentionally trivial examples for demonstration purposes and don't reflect
 industry-standard techniques or the more subtle issues that arise in actual projects.
+
+## Step 1: Starting out with our automated Résumé reviewer
+
+Here we introduce our machine learning project: an automated resume reviewer to help our
+company's HR department filter job applicants. Since competition for talent is fierce,
+management wants this rolled out fast. So we grab some historical data and plug it into an
+easy-to-use open-source toolkit. Sounds pretty straightforward, right?
+
+Link to notebook: [step-1.ipynb](step-1.ipynb)
