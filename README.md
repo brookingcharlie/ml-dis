@@ -30,7 +30,7 @@ Represent applicants using these attributes:
 
 * *University*
 * *GPA*
-* *Race* (use fictional races 'A', 'B', 'C', 'D')
+* *Tribe* (use fictional tribes 'A', 'B', 'C', 'D')
 * *Postcode*
 * *Income*
 
@@ -41,7 +41,7 @@ for further consideration.
 
 ## Ideas for stepping through kinds of bias
 
-1. Train a basic model on all features. Point out incorrect predictions for race 'B' and show
+1. Train a basic model on all features. Point out incorrect predictions for tribe 'B' and show
    how we *don't have enough data* (e.g. only 3 records with other features inconclusive).
    * **Lession:** We say it's accidental, then this is a cautionary tale about its impact
      if you don't check.
@@ -49,25 +49,25 @@ for further consideration.
      back to illustrate the "lack of data" bias)
    * **Alternative action:** What if it revealed bias in the recruitment process because there
      were genuinely almost no hires? Should we react
-     by excluding people identifying as race 'B' from automated processing and decide manually
+     by excluding people identifying as tribe 'B' from automated processing and decide manually
      -- with new HR protocols -- since we don't have enough data?
      Or do we add in some data from an industry source, noting it won't have our own company's approval ratings? What are the implications of these?
-1. Retrain model with data covering all races. Show that results *discriminate against race 'C'*.
+1. Retrain model with data covering all tribes. Show that results *discriminate against tribe 'C'*.
    * **Lesson:** We say it's deliberate and that this strongly suggests a personal bias from
      recruiters in the current manual hiring process.
-   * **Action:** We suggest making our model "blind" to race by excluding that attribute from
+   * **Action:** We suggest making our model "blind" to tribe by excluding that attribute from
      training.
-1. Retrain model without including the *Race* attribute. Show that it *still discriminates*
-   against people from race 'C'!
+1. Retrain model without including the *Tribe* attribute. Show that it *still discriminates*
+   against people from tribe 'C'!
    * **Lesson:** Illustrate how this happens because *Postcode* and *Income* are enough to
-     deduce *Race*.
+     deduce *Tribe*.
      There is redundancy in our data set, meaning we don't actually achieve being "blind".
    * **Action:** Exclude both attributes since they are "personal" and not relevant.
      Could current income correlate with someone's ability (better people more highly paid)?
      Does postcode correlate with someone's travel time and could our
      approval rating embed some consideration of punctuality?
 1. Retrain the model just on *University* and *GPA*. Show the results.
-   * **Lesson:** Does this avoid discrimination? What about correlation of *Race* with
+   * **Lesson:** Does this avoid discrimination? What about correlation of *Tribe* with
      *University* tuition and socioeconomic factors? How well-represented are some universities
      vs. others in our original dataset? (Maybe we need to rig it so we're not just repeating
      the lack-of-data bias again. Could hinge of *Approval* rating instead?)
