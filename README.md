@@ -13,20 +13,14 @@ issues in machine learning using technologies that are now part of the mainstrea
 However, they are intentionally trivial examples for demonstration purposes and don't reflect
 industry-standard techniques or the more subtle issues that arise in actual projects.
 
-## Step 1: Starting out with our automated résumé reviewer
+## Our project: an automated job applicant reviewer
 
-Here we introduce our machine learning project: an automated resume reviewer to help our
+We're implementing an automated resume reviewer to help our
 company's HR department filter graduate job applicants. Since competition for talent is fierce,
 management wants this rolled out fast. So we grab some historical data and plug it into an
 easy-to-use open-source toolkit. Sounds pretty straightforward, right?
 
-Link to notebook: [machine-learning.ipynb](machine-learning.ipynb)
-
----
-
-## Ideas for classifier design
-
-Represent applicants using these attributes:
+We represent applicants using these attributes:
 
 * *University*
 * *GPA*
@@ -39,42 +33,20 @@ an *Approval* flag indicating whether they were a "good" hire. We'll use this ap
 train our model: our goal is to predict whether someone is a good hire and mark their resumes
 for further consideration.
 
-## Ideas for stepping through kinds of bias
+Click here to open the notebook: [notebook.ipynb](notebook.ipynb)
+
+As you step through it, you'll see how a machine learning model is trained and tested using the
+historical recruitment data - and the kinds of discrimination we encounter as we try variations
+of the model.
+
+## Stepping through kinds of bias
 
 1. Train a basic model on all features. Point out incorrect predictions for tribe 'B' and show
-   how we *don't have enough data* (e.g. only 3 records with other features inconclusive).
-   * **Lession:** We say it's accidental, then this is a cautionary tale about its impact
-     if you don't check.
-   * **Action:** Add this data in for next step (say we had it all along, we were just holding it
-     back to illustrate the "lack of data" bias)
-   * **Alternative action:** What if it revealed bias in the recruitment process because there
-     were genuinely almost no hires? Should we react
-     by excluding people identifying as tribe 'B' from automated processing and decide manually
-     -- with new HR protocols -- since we don't have enough data?
-     Or do we add in some data from an industry source, noting it won't have our own company's approval ratings? What are the implications of these?
-1. Retrain model with data covering all tribes. Show that results *discriminate against tribe 'C'*.
-   * **Lesson:** We say it's deliberate and that this strongly suggests a personal bias from
-     recruiters in the current manual hiring process.
-   * **Action:** We suggest making our model "blind" to tribe by excluding that attribute from
-     training.
-1. Retrain model without including the *Tribe* attribute. Show that it *still discriminates*
-   against people from tribe 'C'!
-   * **Lesson:** Illustrate how this happens because *Postcode* and *Income* are enough to
-     deduce *Tribe*.
-     There is redundancy in our data set, meaning we don't actually achieve being "blind".
-   * **Action:** Exclude both attributes since they are "personal" and not relevant.
-     Could current income correlate with someone's ability (better people more highly paid)?
-     Does postcode correlate with someone's travel time and could our
-     approval rating embed some consideration of punctuality?
+   how we don't have enough data (e.g. only 1 record in the training set).
+1. Retrain model with data covering all tribes. Show that results discriminate against tribe 'C'.
+   This strongly suggests a personal bias from recruiters in the current manual hiring process.
+1. Retrain model without including the *Tribe* attribute. Show that it still discriminates
+   against people from tribe 'C'! How does *Postcode* correlate with *Tribe*?
 1. Retrain the model just on *University* and *GPA*. Show the results.
-   * **Lesson:** Does this avoid discrimination? What about correlation of *Tribe* with
-     *University* tuition and socioeconomic factors? How well-represented are some universities
-     vs. others in our original dataset? (Maybe we need to rig it so we're not just repeating
-     the lack-of-data bias again. Could hinge of *Approval* rating instead?)
-
-After the demo:
-
-1. Maybe show Google Research page with interactive illustrations on [Equality of Opportunity
-   ](https://research.googleblog.com/2016/10/equality-of-opportunity-in-machine.html) or
-   maybe demographics post from [Moritz Hardt's blog
-   ](http://blog.mrtz.org/2016/09/06/approaching-fairness.html) as extension ideas?
+   Does this avoid discrimination? What about correlation of *Tribe* with
+   *University* and socioeconomic factors?
