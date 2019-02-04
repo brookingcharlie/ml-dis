@@ -26,7 +26,6 @@ We represent applicants using these attributes:
 * *GPA*
 * *Tribe* (use fictional tribes 'A', 'B', 'C', 'D')
 * *Postcode*
-* *Income*
 
 Our training/test set will capture these attributes for previously-hired graduates along with
 an *Approval* flag indicating whether they were a "good" hire. We'll use this approval flag to
